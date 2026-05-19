@@ -10,8 +10,6 @@
 
 <style>
 
-/* ===== TU CSS COMPLETO (NO SE TOCA) ===== */
-
 *{
     margin:0;
     padding:0;
@@ -67,8 +65,12 @@ body{
 }
 
 @keyframes float{
-    from{ transform:translateY(100vh); }
-    to{ transform:translateY(-120vh); }
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-120vh);
+    }
 }
 
 /* CONTAINER */
@@ -98,6 +100,7 @@ body{
 .top-bar{
     height:5px;
     background:linear-gradient(90deg,var(--orange),var(--yellow),var(--red));
+    background-size:300%;
     animation:gradientMove 4s linear infinite;
 }
 
@@ -106,12 +109,272 @@ body{
     100%{ background-position:300%; }
 }
 
-.content{ padding:34px 28px; }
+.content{
+    padding:34px 28px;
+}
 
-/* ===== TODO TU DISEÑO SIGUE IGUAL ===== */
-/* (lo omití aquí por espacio, NO BORRES el tuyo) */
+/* LOGO */
 
-/* BUTTON PAYMENT MOD (NO TOCAR TU ESTILO) */
+.logo-wrap{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo-icon{
+    font-size:72px;
+    display:inline-block;
+
+    animation:logoPulse 2s infinite alternate;
+}
+
+@keyframes logoPulse{
+    from{
+        transform:scale(1);
+        filter:drop-shadow(0 0 10px rgba(255,94,0,.3));
+    }
+    to{
+        transform:scale(1.06);
+        filter:drop-shadow(0 0 25px rgba(255,179,0,.9));
+    }
+}
+
+.logo-title{
+    font-family:'Orbitron',sans-serif;
+    font-size:54px;
+    font-weight:900;
+    line-height:1;
+    margin-top:10px;
+
+    background:linear-gradient(90deg,#ff5e00,#ffb300,#ff5e00);
+    background-size:200%;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:shine 4s linear infinite;
+}
+
+@keyframes shine{
+    from{
+        background-position:0%;
+    }
+    to{
+        background-position:200%;
+    }
+}
+
+.logo-sub{
+    margin-top:10px;
+    color:var(--muted);
+    letter-spacing:3px;
+    font-size:12px;
+    text-transform:uppercase;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(180deg,#1a1a1a,#0f0f0f);
+    border:1px solid rgba(255,255,255,.04);
+
+    border-radius:24px;
+    padding:26px;
+    margin-bottom:24px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top right, rgba(255,179,0,.15), transparent 30%);
+
+    pointer-events:none;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    background:rgba(255,94,0,.12);
+    border:1px solid rgba(255,94,0,.25);
+
+    color:#ff8c42;
+
+    padding:8px 14px;
+    border-radius:999px;
+
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+}
+
+.badge-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--orange);
+
+    animation:blink 1s infinite alternate;
+}
+
+@keyframes blink{
+    from{ opacity:1; }
+    to{ opacity:.3; }
+}
+
+.price{
+    font-family:'Orbitron',sans-serif;
+    font-size:64px;
+    font-weight:900;
+    line-height:1;
+    color:var(--yellow);
+}
+
+.price small{
+    font-size:18px;
+    color:#888;
+}
+
+.old-price{
+    color:#555;
+    text-decoration:line-through;
+    margin-top:8px;
+    font-size:20px;
+}
+
+.hero-desc{
+    margin-top:18px;
+    color:#bdbdbd;
+    line-height:1.7;
+    font-size:15px;
+}
+
+/* FEATURES */
+
+.features{
+    margin-top:22px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.feature{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    background:rgba(255,255,255,.02);
+    border:1px solid rgba(255,255,255,.03);
+
+    padding:12px 14px;
+    border-radius:14px;
+}
+
+.feature-icon{
+    width:40px;
+    height:40px;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,var(--orange),var(--yellow));
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:18px;
+    flex-shrink:0;
+}
+
+/* BUTTON */
+
+.btn{
+    width:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+
+    border:none;
+    border-radius:18px;
+
+    background:linear-gradient(135deg,var(--orange),var(--yellow));
+
+    padding:20px;
+
+    color:black;
+
+    font-family:'Orbitron',sans-serif;
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    position:relative;
+    overflow:hidden;
+
+    animation:pulse 2s infinite;
+
+    margin-top:10px;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.02);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(255,179,0,.3);
+}
+
+.btn::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent
+    );
+
+    transform:translateX(-100%);
+    animation:shineBtn 2.5s infinite;
+}
+
+@keyframes shineBtn{
+    to{
+        transform:translateX(200%);
+    }
+}
+
+/* PAYMENT */
+
+.payment{
+    margin-top:18px;
+}
 
 .btn-payment{
     display:flex;
@@ -121,17 +384,19 @@ body{
 
     width:100%;
 
+    text-decoration:none;
+
     padding:18px;
+
     border-radius:18px;
 
     background:linear-gradient(135deg,#00a8ff,#0078ff);
+
     color:white;
 
     font-family:'Orbitron',sans-serif;
     font-weight:800;
     letter-spacing:2px;
-
-    text-decoration:none;
 
     transition:.25s;
 }
@@ -141,48 +406,143 @@ body{
     box-shadow:0 15px 35px rgba(0,168,255,.3);
 }
 
-/* MODAL QR */
-
-#qrModal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.8);
-    backdrop-filter:blur(8px);
-    justify-content:center;
-    align-items:center;
-    z-index:99999;
-}
-
-.qr-box{
-    background:#111;
-    padding:25px;
-    border-radius:20px;
+.security{
+    margin-top:14px;
     text-align:center;
-    border:1px solid rgba(255,255,255,0.1);
-    box-shadow:0 0 40px rgba(255,179,0,0.2);
-    animation:pop .25s ease;
+    color:#666;
+    font-size:13px;
 }
 
-@keyframes pop{
-    from{ transform:scale(.8); opacity:0; }
-    to{ transform:scale(1); opacity:1; }
+/* STATS */
+
+.stats{
+    margin-top:22px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
 }
 
-.qr-box h2{
-    color:#ffb300;
-    font-family:Orbitron;
+.stat{
+    background:#121212;
+    border:1px solid rgba(255,255,255,.04);
+
+    border-radius:16px;
+    padding:14px 10px;
+    text-align:center;
 }
 
-.qr-box button{
-    margin-top:15px;
-    padding:12px 18px;
-    border:none;
-    border-radius:12px;
-    background:#ff5e00;
-    color:black;
-    font-weight:bold;
-    cursor:pointer;
+.stat h3{
+    color:var(--yellow);
+    font-size:24px;
+}
+
+.stat p{
+    margin-top:6px;
+    font-size:12px;
+    color:#777;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:#444;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+/* WHATSAPP FLOAT */
+
+.whatsapp-float{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:linear-gradient(135deg,#25d366,#128c7e);
+
+    color:white;
+    text-decoration:none;
+
+    font-family:"Rajdhani",sans-serif;
+    font-weight:700;
+    font-size:14px;
+
+    padding:12px 18px 12px 14px;
+
+    border-radius:999px;
+
+    box-shadow:0 6px 24px rgba(37,211,102,0.45);
+
+    animation:waPulse 2s ease-in-out infinite;
+
+    transition:
+    transform .25s,
+    box-shadow .25s;
+}
+
+.whatsapp-float:hover{
+    transform:translateY(-4px) scale(1.04);
+
+    box-shadow:
+    0 12px 32px rgba(37,211,102,0.6);
+
+    animation:none;
+}
+
+@keyframes waPulse{
+
+    0%,100%{
+        box-shadow:
+        0 6px 24px rgba(37,211,102,.45);
+    }
+
+    50%{
+        box-shadow:
+        0 6px 32px rgba(37,211,102,.8);
+    }
+
+}
+
+.whatsapp-label{
+    white-space:nowrap;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:520px){
+
+    .logo-title{
+        font-size:42px;
+    }
+
+    .price{
+        font-size:52px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:400px){
+
+    .whatsapp-label{
+        display:none;
+    }
+
+    .whatsapp-float{
+        padding:14px;
+    }
+
 }
 
 </style>
@@ -193,72 +553,281 @@ body{
 <div class="particles" id="particles"></div>
 
 <div class="container">
+
 <div class="card">
+
+<div class="top-bar"></div>
+
 <div class="content">
 
-<!-- TU CONTENIDO ORIGINAL -->
-<h1 style="color:#ffb300;font-family:Orbitron;">SAFE GAME</h1>
+<!-- LOGO -->
 
-<p>Plataforma lista</p>
+<div class="logo-wrap">
+<div class="logo-icon">🧯</div>
+<div class="logo-title">SAFE GAME</div>
+<div class="logo-sub">
+Entrenamiento SST Gamificado
+</div>
+</div>
 
-<!-- BOTÓN ORIGINAL -->
-<a class="btn-payment" href="https://link.mercadopago.com.co/enlazadosapp" target="_blank">
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="badge">
+<div class="badge-dot"></div>
+PLATAFORMA PREMIUM
+</div>
+
+<div class="price">
+$19.900
+<small>/mes</small>
+</div>
+
+<div class="old-price">
+Antes $39.900
+</div>
+
+<div class="hero-desc">
+Capacita a tu equipo con juegos interactivos, rankings,
+retos y entrenamiento SST en tiempo real.
+</div>
+
+<div class="features">
+
+<div class="feature">
+<div class="feature-icon">🎮</div>
+<div>
+<b>Juegos interactivos</b><br>
+Capacitaciones dinámicas y competitivas
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">🏆</div>
+<div>
+<b>Ranking empresarial</b><br>
+Comparte resultados en tiempo real
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">📄</div>
+<div>
+<b>PDF y trazabilidad</b><br>
+Registro automático de actividades
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">⚡</div>
+<div>
+<b>Nuevos retos mensuales</b><br>
+Actualizaciones constantes de contenido
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- BOTÓN PRINCIPAL -->
+
+<a class="btn" href="https://gameprueba.netlify.app/">
+🎮 SUSCRIPTORES
+</a>
+
+<div class="security">
+🔥 Acceso inmediato • Sin registro
+</div>
+
+<!-- PAYMENT -->
+
+<div class="payment">
+
+<a
+class="btn-payment"
+href="https://link.mercadopago.com.co/enlazadosapp"
+target="_blank"
+>
 💎 ACTIVAR PREMIUM
 </a>
 
-<br>
+<div class="security">
+🔒 Pago seguro con MercadoPago
+</div>
 
-<!-- 🔥 BOTÓN PAYPAL QR -->
-<a class="btn-payment" href="javascript:void(0)" onclick="openQR()">
-💰 PAGAR CON PAYPAL
+<button
+class="btn-payment btn-paypal"
+onclick="document.getElementById('modal-qr').style.display='flex'"
+style="margin-top:12px;background:linear-gradient(135deg,#003087,#009cde);cursor:pointer;font-size:15px;"
+>
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
+<path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.613 5.025-6.139 5.576-.588.09-1.187.134-1.784.134H11.29a1.1 1.1 0 0 0-1.085.93l-.82 5.196-.232 1.472a.641.641 0 0 0 .633.74h3.78c.457 0 .846-.333.917-.784l.038-.196.727-4.613.047-.252a.929.929 0 0 1 .917-.784h.578c3.741 0 6.671-1.52 7.526-5.912.357-1.835.172-3.367-.754-4.22z"/>
+</svg>
+PAGAR CON PAYPAL
+</button>
+
+<div class="security">
+🔒 Escanea el QR con tu app de PayPal
+</div>
+
+<!-- MODAL QR PAYPAL -->
+<div id="modal-qr" style="
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(8px);
+z-index:99999;
+justify-content:center;
+align-items:center;
+padding:20px;
+">
+<div style="
+background:#111;
+border:1px solid rgba(0,156,222,.3);
+border-radius:24px;
+padding:32px 28px;
+max-width:340px;
+width:100%;
+text-align:center;
+box-shadow:0 0 60px rgba(0,156,222,.2);
+position:relative;
+">
+<button
+onclick="document.getElementById('modal-qr').style.display='none'"
+style="
+position:absolute;
+top:14px;right:16px;
+background:none;
+border:none;
+color:#888;
+font-size:22px;
+cursor:pointer;
+line-height:1;
+"
+>✕</button>
+
+<div style="
+font-family:'Orbitron',sans-serif;
+font-size:16px;
+font-weight:700;
+color:#009cde;
+margin-bottom:6px;
+letter-spacing:2px;
+">PAYPAL</div>
+
+<p style="color:#aaa;font-size:13px;margin-bottom:20px;line-height:1.6;">
+Escanea el código QR con tu app de PayPal o cámara para completar el pago.
+</p>
+
+<div style="
+background:white;
+border-radius:16px;
+padding:16px;
+display:inline-block;
+">
+<img
+src="qr.png"
+alt="QR PayPal"
+style="width:200px;height:200px;display:block;border-radius:8px;"
+/>
+</div>
+
+<p style="margin-top:18px;color:#666;font-size:12px;letter-spacing:1px;">
+Después de pagar, escríbenos por WhatsApp para activar tu acceso.
+</p>
+</div>
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+<h3>+120</h3>
+<p>Empresas activas</p>
+</div>
+
+<div class="stat">
+<h3>15K</h3>
+<p>Capacitaciones</p>
+</div>
+
+<div class="stat">
+<h3>98%</h3>
+<p>Satisfacción</p>
+</div>
+
+</div>
+
+<div class="footer">
+SAFE GAME © 2026 • ENLAZADOS
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+
+<a 
+href="https://wa.me/573122234862"
+target="_blank"
+class="whatsapp-float"
+title="Escríbenos por WhatsApp"
+>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 32 32"
+width="28"
+height="28"
+fill="white">
+
+<path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.737 5.49 2.027 7.8L0 32l8.418-2.01A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.77-1.856l-.486-.29-5.003 1.195 1.24-4.87-.318-.5A13.27 13.27 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.87c-.398-.2-2.355-1.162-2.72-1.294-.366-.133-.632-.2-.898.2-.266.398-1.031 1.294-1.264 1.56-.233.266-.466.3-.864.1-.398-.2-1.681-.62-3.202-1.977-1.183-1.057-1.982-2.363-2.215-2.762-.233-.398-.025-.613.175-.812.18-.178.398-.466.597-.698.2-.233.266-.398.398-.664.133-.266.067-.499-.033-.698-.1-.2-.898-2.163-1.23-2.962-.324-.778-.653-.673-.898-.686l-.765-.013c-.266 0-.698.1-1.064.499-.366.398-1.397 1.365-1.397 3.328s1.43 3.86 1.63 4.126c.2.266 2.816 4.3 6.82 6.03.953.412 1.696.657 2.276.841.956.305 1.826.262 2.514.159.767-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.166-.366-.266-.764-.466z"/>
+</svg>
+
+<span class="whatsapp-label">
+¿Necesitas ayuda?
+</span>
+
 </a>
-
-</div>
-</div>
-</div>
-
-<!-- 🔥 MODAL QR -->
-<div id="qrModal">
-<div class="qr-box">
-
-<h2>Escanea para pagar</h2>
-
-<img src="qr.jpg" width="260" style="margin-top:15px;border-radius:12px;">
-
-<br>
-
-<button onclick="closeQR()">Cerrar</button>
-
-</div>
-</div>
 
 <script>
 
 /* PARTICLES */
+
 const particles = document.getElementById("particles");
 
 for(let i=0;i<40;i++){
+
     const p = document.createElement("div");
+
     p.classList.add("particle");
 
-    p.style.width = (Math.random()*4+1)+"px";
-    p.style.height = p.style.width;
+    const size = Math.random()*4+1;
 
-    p.style.left = Math.random()*100+"%";
-    p.style.background = Math.random()>0.5?"#ff5e00":"#ffb300";
+    p.style.width = size + "px";
+    p.style.height = size + "px";
 
-    p.style.animationDuration = (Math.random()*10+8)+"s";
+    p.style.left = Math.random()*100 + "%";
+
+    p.style.background =
+    Math.random() > .5
+    ? "#ff5e00"
+    : "#ffb300";
+
+    p.style.animationDuration =
+    (Math.random()*10+8) + "s";
+
+    p.style.animationDelay =
+    Math.random()*8 + "s";
 
     particles.appendChild(p);
-}
-
-/* QR FUNCTIONS */
-function openQR(){
-    document.getElementById("qrModal").style.display="flex";
-}
-
-function closeQR(){
-    document.getElementById("qrModal").style.display="none";
 }
 
 </script>

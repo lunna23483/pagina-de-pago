@@ -454,6 +454,67 @@ body{
     text-transform:uppercase;
 }
 
+/* WHATSAPP FLOAT */
+
+.whatsapp-float{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:linear-gradient(135deg,#25d366,#128c7e);
+
+    color:white;
+    text-decoration:none;
+
+    font-family:"Rajdhani",sans-serif;
+    font-weight:700;
+    font-size:14px;
+
+    padding:12px 18px 12px 14px;
+
+    border-radius:999px;
+
+    box-shadow:0 6px 24px rgba(37,211,102,0.45);
+
+    animation:waPulse 2s ease-in-out infinite;
+
+    transition:
+    transform .25s,
+    box-shadow .25s;
+}
+
+.whatsapp-float:hover{
+    transform:translateY(-4px) scale(1.04);
+
+    box-shadow:
+    0 12px 32px rgba(37,211,102,0.6);
+
+    animation:none;
+}
+
+@keyframes waPulse{
+
+    0%,100%{
+        box-shadow:
+        0 6px 24px rgba(37,211,102,.45);
+    }
+
+    50%{
+        box-shadow:
+        0 6px 32px rgba(37,211,102,.8);
+    }
+
+}
+
+.whatsapp-label{
+    white-space:nowrap;
+}
+
 /* RESPONSIVE */
 
 @media(max-width:520px){
@@ -468,6 +529,18 @@ body{
 
     .stats{
         grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:400px){
+
+    .whatsapp-label{
+        display:none;
+    }
+
+    .whatsapp-float{
+        padding:14px;
     }
 
 }
@@ -615,6 +688,30 @@ SAFE GAME © 2026 • ENLAZADOS
 </div>
 
 </div>
+
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+
+<a 
+href="https://wa.me/573122234862"
+target="_blank"
+class="whatsapp-float"
+title="Escríbenos por WhatsApp"
+>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 32 32"
+width="28"
+height="28"
+fill="white">
+
+<path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.737 5.49 2.027 7.8L0 32l8.418-2.01A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.77-1.856l-.486-.29-5.003 1.195 1.24-4.87-.318-.5A13.27 13.27 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.87c-.398-.2-2.355-1.162-2.72-1.294-.366-.133-.632-.2-.898.2-.266.398-1.031 1.294-1.264 1.56-.233.266-.466.3-.864.1-.398-.2-1.681-.62-3.202-1.977-1.183-1.057-1.982-2.363-2.215-2.762-.233-.398-.025-.613.175-.812.18-.178.398-.466.597-.698.2-.233.266-.398.398-.664.133-.266.067-.499-.033-.698-.1-.2-.898-2.163-1.23-2.962-.324-.778-.653-.673-.898-.686l-.765-.013c-.266 0-.698.1-1.064.499-.366.398-1.397 1.365-1.397 3.328s1.43 3.86 1.63 4.126c.2.266 2.816 4.3 6.82 6.03.953.412 1.696.657 2.276.841.956.305 1.826.262 2.514.159.767-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.166-.366-.266-.764-.466z"/>
+</svg>
+
+<span class="whatsapp-label">
+¿Necesitas ayuda?
+</span>
+
+</a>
 
 <script>
 
